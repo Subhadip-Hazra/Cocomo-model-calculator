@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLOC MATH SOLUTION</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+            background-color: #4039ff21;
+        }
+        header,
+        .form,
+        .form-in,
+        .heading,
+        .container,
+        footer{
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-in 2s ease-in-out forwards;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        header{
+            display: grid;
+            text-align: center;
+            font-size: medium;
+            background-color:#1b033fea;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .form{
+            display: grid; 
+            max-height: 100%;
+            max-width: 100%;
+            border: 3px solid rgba(248, 232, 232, 0.119);
+            padding: 20px;
+            margin: 30px;
+            background-color: #3104f846;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .form-in{
+            padding: 20px;
+        }
+        .hints{
+            display: grid;
+            text-align: end;
+        }
+        .hints i{
+            font-size: 30px;
+            color:yellow;
+        }
+        .hint-container {
+            display: none;
+            position: fixed;
+            top: 40%;
+            right: 30px;
+            transform: translateY(-50%);
+            width: 200px;
+            padding: 10px;
+            background-color:#e51acd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .hints:hover + .hint-container {
+            display: block;
+        }
+        .form p{
+            color: rgb(13, 13, 13);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .form #klocInput{
+            border-radius: 20px;
+            padding: 6px;
+            max-width: 800px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        label{
+            font-size: 17px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .button{
+            display: grid;
+            padding: 20px;
+            justify-content: center;
+        }
+        #submit{
+            padding: 10px 20px 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+            color: #fff;
+            background-color: #130458c1;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+        #submit span{
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        #submit span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        #submit:hover span {
+            padding-right: 25px;
+        }
+        
+        #submit:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        #submit:hover{
+            background-color: #e4d2fd;
+            color: black;
+        }
+        .heading{
+            display: grid;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: larger;
+            text-align: center;
+        }
+        .container{
+            display: grid; 
+            max-height: 100%;
+            max-width: 100%;
+            border: 3px solid rgba(248, 232, 232, 0.119);
+            padding: 15px;
+            margin: 30px;
+            background-color: #3104f846;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .sub-container{
+            background-color: rgba(240, 248, 255, 0.785);
+            border-radius: 15px;
+            padding: 30px;
+            font-size: 15px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        footer{
+            display: grid;
+            background-color: #1f055ae4;
+            color: #fff;
+            padding: 10px;
+        }
+        .social-media{
+            text-align: center;
+            font-size: 20px;
+        }
+        .social-media i{
+            padding: 5px;
+            cursor: pointer;
+            color: #e4d2fd;
+        }
+        .copyright{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>COCOMO Calculator</h2>
+    </header>
+    <form class="form">
+        <a class="hints"><i class='bx bxs-brain'></i></a>
+            <div class="hint-container">
+                <p>If your queustion have no mention mode </p>
+                <li>2-50KLOC = Organic</li>
+                <li>50-300KLOC = Semi Detached</li>
+                <li>Typically over 300KLOC = Embedded</li>
+            </div>
+        <div class="form-in">
+            <p>Enter KLOC</p>
+            <input type="number" id="klocInput" placeholder="Enter KLOC here..">
+        <p>Choose type of Mode</p>
+        <input type="radio" id="organic" name="mode" value="organic">
+        <label for="organic">Organic</label></br>
+        <input type="radio" id="semi-detached" name="mode" value="semi-detached">
+        <label for="semi-detached">Semi Detached</label></br>
+        <input type="radio" id="embedded" name="mode" value="embedded">
+        <label for="embedded">Embedded</label></br>
+    </div>
+    <div class="button">
+        <button id="submit"><span>Submit</span></button>
+    </div>
+    </form>
+    <div class="heading"><p><u>ANSWER</u></p></div>
+    <div class="container">
+        <div class="sub-container">
+            <span class="result"></span>
+        </div>
+    </div>
+    <footer>
+        <div class="social-media">
+            <a href="https://www.facebook.com/subhadip.hazra.7169/"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="https://www.instagram.com/_subha__2002/"><i class='bx bxl-instagram'></i></a>
+            <a href="https://www.linkedin.com/in/subhadiphazra/"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://github.com/Subhadip-Hazra"><i class='bx bxl-github' ></i></a>
+        </div>
+        <div class="copyright"><p>@2023 All Rights Reserved,Subhadip-Hazra®</p></div>
+    </footer>
+    <script src="script.js"></script>
+    
+</body>
+</html>
