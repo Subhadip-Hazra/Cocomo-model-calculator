@@ -43,7 +43,7 @@ document.getElementById('submit').addEventListener('click', function(event) {
         productivity = klocValue / effort;
     }
 
-    var resultText = 'Effort: ' + effort.toFixed(6) +'  P.M' + '<br>Development Time: ' + developement_time.toFixed(6) +'  Mounths' +
+    var resultText = 'Effort: ' + effort.toFixed(6) +'  P.M' + '<br>Development Time: ' + developement_time.toFixed(6) +'  Months' +
         '<br>Average Staff Size: ' + staff_size.toFixed(6) +'  Persons'+'<br>Productivity: ' + productivity.toFixed(6) +'   KLOC/P.M';
 
     const resultElement = document.querySelector('.result');
